@@ -1,0 +1,138 @@
+/* Advanced Calculator - styles */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "SF Mono", "Consolas", "Monaco", monospace;
+    background: linear-gradient(145deg, #1a1b26 0%, #16161e 100%);
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a9b1d6;
+}
+
+.calculator {
+    background: #24283b;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.calculator h1 {
+    margin: 0 0 1rem 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #7aa2f7;
+    text-align: center;
+}
+
+.form-row {
+    margin-bottom: 1rem;
+}
+
+.form-row label {
+    display: block;
+    font-size: 0.75rem;
+    margin-bottom: 0.35rem;
+    color: #565f89;
+}
+
+.form-row input,
+.form-row select {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    font-size: 1rem;
+    font-family: inherit;
+    border: 1px solid #414868;
+    border-radius: 8px;
+    background: #1f2335;
+    color: #c0caf5;
+}
+
+.form-row input:focus,
+.form-row select:focus {
+    outline: none;
+    border-color: #7aa2f7;
+    box-shadow: 0 0 0 2px rgba(122, 162, 247, 0.2);
+}
+
+.form-row select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%238899c6' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    padding-right: 2rem;
+}
+
+.two-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+
+.two-cols .full {
+    grid-column: 1 / -1;
+}
+
+.submit-row {
+    margin-top: 1.25rem;
+}
+
+.submit-row button {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    font-family: inherit;
+    font-weight: 600;
+    color: #1a1b26;
+    background: linear-gradient(180deg, #7aa2f7 0%, #5a82d7 100%);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: filter 0.15s, transform 0.1s;
+}
+
+.submit-row button:hover {
+    filter: brightness(1.1);
+}
+
+.submit-row button:active {
+    transform: scale(0.98);
+}
+
+.result-box {
+    margin-top: 1.25rem;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    text-align: center;
+    min-height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.result-box.success {
+    background: rgba(158, 206, 106, 0.15);
+    border: 1px solid #9ece6a;
+    color: #9ece6a;
+}
+
+.result-box.error {
+    background: rgba(247, 118, 142, 0.15);
+    border: 1px solid #f7768e;
+    color: #f7768e;
+}
+
+.result-box.empty {
+    background: #1f2335;
+    border: 1px solid #414868;
+    color: #565f89;
+}
+

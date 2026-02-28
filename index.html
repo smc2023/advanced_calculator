@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="calculator" id="calc">
+        <h1>Advanced Calculator</h1>
+        <form method="post" action="">
+            <div class="form-row">
+                <label for="operation">Operation</label>
+                <select name="operation" id="operation" required>
+                    <option value="add" {{SELECTED_add}}>Add (+)</option>
+                    <option value="subtract" {{SELECTED_subtract}}>Subtract (−)</option>
+                    <option value="multiply" {{SELECTED_multiply}}>Multiply (×)</option>
+                    <option value="divide" {{SELECTED_divide}}>Divide (÷)</option>
+                    <option value="factorial" {{SELECTED_factorial}}>Factorial (!)</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label for="num1" id="label-num1">First number</label>
+                <input type="text" name="num1" id="num1" value="{{NUM1}}" placeholder="e.g. 12" inputmode="decimal" autocomplete="off">
+            </div>
+            <div class="form-row" id="row-num2">
+                <label for="num2">Second number</label>
+                <input type="text" name="num2" id="num2" value="{{NUM2}}" placeholder="e.g. 5" inputmode="decimal" autocomplete="off">
+            </div>
+            <div class="submit-row">
+                <button type="submit">Calculate</button>
+            </div>
+        </form>
+        <div class="result-box {{RESULT_CLASS}}">{{RESULT_TEXT}}</div>
+    </div>
+    <script>
+        (function() {
+            var op = document.getElementById('operation');
+            var rowNum2 = document.getElementById('row-num2');
+            var labelNum1 = document.getElementById('label-num1');
+            var num1 = document.getElementById('num1');
+            function toggleFactorial() {
+                var isFactorial = op.value === 'factorial';
+                rowNum2.style.display = isFactorial ? 'none' : 'block';
+                labelNum1.textContent = isFactorial ? 'Number (non-negative integer)' : 'First number';
+                num1.placeholder = isFactorial ? 'e.g. 5' : 'e.g. 12';
+            }
+            op.addEventListener('change', toggleFactorial);
+            toggleFactorial();
+        })();
+    </script>
+</body>
+</html>
