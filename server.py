@@ -129,10 +129,11 @@ class CalculatorHandler(BaseHTTPRequestHandler):
 
 
 def main():
-    port = 8080
+    # Use PORT env var if provided (e.g. by AWS App Runner), otherwise default to 8080.
+    port = int(os.environ.get("PORT", "8080"))
     for attempt in range(10):
         try:
-            server = HTTPServer(("", port), CalculatorHandler)
+            server = HTTPServer(("0.0.0.0", port), CalculatorHandler)
             break
         except OSError as e:
             if e.errno == 48:  # Address already in use
